@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
 import {Router} from "@angular/router";
-import {ProductService} from "../../../services/product.service";
+import {ProductType} from "../../../../types/product.type";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'product-card-component',

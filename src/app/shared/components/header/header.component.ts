@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
-import {SearchService} from "../../../services/search.service";
+import {SearchService} from "../../services/search.service";
 
 @Component({
   selector: 'header-comp',

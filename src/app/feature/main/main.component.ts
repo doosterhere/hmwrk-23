@@ -1,6 +1,6 @@
 import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
-import {ProductService} from "../../../services/product.service";
+import {ProductService} from "../../shared/services/product.service";
 
 @Component({
   selector: 'main-component',

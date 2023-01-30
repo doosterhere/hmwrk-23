@@ -1,8 +1,8 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
-import {ProductService} from "../../../services/product.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ProductType} from "../../../types/product.type";
+import {ProductService} from "../../shared/services/product.service";
 
 @Component({
   selector: 'product-component',

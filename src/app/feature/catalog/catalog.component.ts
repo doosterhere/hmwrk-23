@@ -1,9 +1,9 @@
 import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
-import {ProductService} from "../../../services/product.service";
-import {Observer, Subscription} from "rxjs";
-import {ProductType} from "../../../types/product.type";
+import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
-import {SearchService} from "../../../services/search.service";
+import {ProductType} from "../../../types/product.type";
+import {ProductService} from "../../shared/services/product.service";
+import {SearchService} from "../../shared/services/search.service";
 
 @Component({
   selector: 'catalog-component',

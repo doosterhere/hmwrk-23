@@ -2,7 +2,7 @@ import {Component, HostBinding, OnInit, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable, Subscription} from "rxjs"
 import {FormBuilder, Validators} from "@angular/forms";
-import {ProductService} from "../../../services/product.service";
+import {ProductService} from "../../shared/services/product.service";
 import {ProductType} from "../../../types/product.type";
 import {animate, style, transition, trigger} from "@angular/animations";
 
