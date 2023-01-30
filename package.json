@@ -1,12 +1,11 @@
 {
-  "homepage": "https://doosterhere.github.io/",
   "name": "teashop",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-gp": "ng build --output-path docs",
+    "build-gp": "ng build --output-path docs --base-href /docs/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
