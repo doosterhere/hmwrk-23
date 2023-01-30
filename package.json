@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-gp": "ng build --output-path pages --base-href /teashop/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
