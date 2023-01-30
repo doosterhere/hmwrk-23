@@ -1,0 +1,13 @@
+<div class="collections ps-3 pe-3 pt-4 mb-5">
+  <h2 class="text-center mb-5 fw-bold" *ngIf="products.length">
+    {{searchPhrase ? "Результаты поиска по запросу \"" + searchPhrase + "\"" : "Наши чайные коллекции"}}
+  </h2>
+  <h2 class="text-center mb-5 fw-bold" *ngIf="!products.length">Ничего не найдено</h2>
+  <div class="row row-cols-1 g-4">
+    <product-card-component *ngFor="let product of products"
+                            [product]="product"></product-card-component>
+  </div>
+  <div class="loader-bg" *ngIf="loading">
+    <div class="loader"></div>
+  </div>
+</div>

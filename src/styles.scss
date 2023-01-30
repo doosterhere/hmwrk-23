@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+.accordion-item {
+  .accordion-header {
+    .accordion-button.collapsed,
+    .accordion-button {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      background-color: #0c63e4;
+      color: white;
+
+      &::after {
+        background-image: url("assets/images/accordion-button.png");
+      }
+    }
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

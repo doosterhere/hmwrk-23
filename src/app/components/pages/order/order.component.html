@@ -1,0 +1,148 @@
+<div class="order pt-4" id="order" *ngIf="!isOrderPlaced" @inOutAnimation [@.disabled]="!isOrderPlaced">
+  <div class="row pt-2 vw-100">
+    <div class="col-xl-3 col-md-2 col-sm-1"></div>
+    <div class="col-xl-6 col-md-8 col-sm-10">
+      <form novalidate [formGroup]="orderForm">
+        <h2 class="text-center mb-5 fw-bold">Сделать заказ</h2>
+        <div class="row g-4">
+
+          <div class="col-sm-4 col-12">
+            <label for="formControlInputName" class="mb-2 form-label">Имя</label>
+            <input type="text" class="form-control" id="formControlInputName" value=""
+                   formControlName="firstName">
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('firstName')?.invalid &&
+                 (orderForm.get('firstName')?.touched || orderForm.get('firstName')?.dirty)">
+              <div *ngIf="orderForm.get('firstName')?.errors?.['required']">
+                Необходимо указать имя
+              </div>
+              <div *ngIf="orderForm.get('firstName')?.errors?.['pattern']">
+                Некорректное имя
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-12">
+            <label for="formControlInputSurname" class="mb-2">Фамилия</label>
+            <input type="text" class="form-control" id="formControlInputSurname" value=""
+                   formControlName="lastName">
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('lastName')?.invalid &&
+                 (orderForm.get('lastName')?.touched || orderForm.get('lastName')?.dirty)">
+              <div *ngIf="orderForm.get('lastName')?.errors?.['required']">
+                Необходимо указать фамилию
+              </div>
+              <div *ngIf="orderForm.get('lastName')?.errors?.['pattern']">
+                Некорректная фамилия
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 col-12">
+            <label for="formControlInputPhone" class="mb-2">Телефон</label>
+            <input type="tel" class="form-control" id="formControlInputPhone" value=""
+                   formControlName="phone">
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('phone')?.invalid &&
+                 (orderForm.get('phone')?.touched || orderForm.get('phone')?.dirty)">
+              <div *ngIf="orderForm.get('phone')?.errors?.['required']">
+                Необходимо указать телефон
+              </div>
+              <div *ngIf="orderForm.get('phone')?.errors?.['pattern']">
+                Некорректный номер телефона
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+            <label for="formControlInputCountry" class="mb-2">Страна</label>
+            <select class="form-select" id="formControlInputCountry"
+                    formControlName="country">
+              <option value="">Выберите...</option>
+              <option>Страна 1</option>
+              <option>Страна 2</option>
+              <option>Страна 3</option>
+              <option>Страна 4</option>
+              <option>Страна 5</option>
+            </select>
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('country')?.invalid &&
+                 (orderForm.get('country')?.touched || orderForm.get('country')?.dirty) &&
+                 orderForm.get('country')?.errors?.['required']">
+              Необходимо выбрать страну
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+            <label for="formControlInputPostIndex" class="mb-2">Индекс</label>
+            <input type="text" class="form-control" id="formControlInputPostIndex" value=""
+                   formControlName="zip">
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('zip')?.invalid &&
+                 (orderForm.get('zip')?.touched || orderForm.get('zip')?.dirty)">
+              <div *ngIf="orderForm.get('zip')?.errors?.['required']">
+                Необходимо указать индекс
+              </div>
+              <div *ngIf="orderForm.get('zip')?.errors?.['pattern']">
+                Некорректный индекс
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="formControlInputAddress" class="mb-2">Адрес</label>
+            <input type="tel" class="form-control" id="formControlInputAddress" value=""
+                   formControlName="address">
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('address')?.invalid &&
+                 (orderForm.get('address')?.touched || orderForm.get('address')?.dirty)">
+              <div *ngIf="orderForm.get('address')?.errors?.['required']">
+                Необходимо указать адрес
+              </div>
+              <div *ngIf="orderForm.get('address')?.errors?.['pattern']">
+                Некорректный адрес
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+            <label for="formProduct" class="mb-2">Товар</label>
+            <input type="text" class="form-control" id="formProduct" value=""
+                   formControlName="product"
+                   [class]="isProductNameExist ? '' : 'wrong-product'">
+            <div class="invalid-feedback d-block"
+                 *ngIf="orderForm.get('product')?.invalid &&
+                 orderForm.get('product')?.errors?.['required']">
+              Отсутствует название товара
+            </div>
+            <div class="invalid-feedback d-block"
+                 *ngIf="!isProductNameExist">
+              Данный товар отсутствует в перечне!
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+            <label for="formProductComment" class="mb-2">Комментарий к заказу (необ.)</label>
+            <input type="text" class="form-control" id="formProductComment" value=""
+                   formControlName="comment">
+          </div>
+
+          <div class="col-12 mb-3">
+            <button class="btn btn-primary ps-5 pe-5" id="sendForm" (click)="createOrder()"
+                    [disabled]="orderForm.invalid || orderForm.disabled">Отправить
+            </button>
+            <div class="invalid-feedback d-block"
+                 *ngIf="placeOrderError">
+              Произошла ошибка. Попробуйте еще раз
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xl-3 col-md-2 col-sm-1"></div>
+  </div>
+</div>
+<div class="thank-you fs-1 d-flex justify-content-center align-items-center flex-grow-1"
+     *ngIf="isOrderPlaced" @inOutAnimation [@.disabled]="!isOrderPlaced">
+  <p class="position-absolute top-50 start-50 translate-middle">Спасибо за заказ!</p>
+</div>

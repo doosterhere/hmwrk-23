@@ -1,0 +1,13 @@
+<div class="container m-0 m-auto">
+  <div class="row pt-3 pb-3">
+    <div class="col-4">
+      <img [src]="product.image" alt="Чай {{product.id}}" class="w-100">
+    </div>
+    <div class="col-8">
+      <p class="text-success fw-bold">{{product.title}}</p>
+      <p>{{product.description}}</p>
+      <p>Цена: {{product.price}} руб.</p>
+      <a class="btn btn-primary ps-5 pe-5" routerLink="/order" [queryParams]="{product:product.title}">Купить</a>
+    </div>
+  </div>
+</div>

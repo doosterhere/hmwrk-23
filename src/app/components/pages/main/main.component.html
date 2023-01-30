@@ -1,0 +1,65 @@
+<div class="container-xxl container-xl container-lg container-md container-sm  mt-5 mb-5">
+
+  <div class="pt-4 mb-5 position-relative">
+    <img src="assets/images/image-slide-01.png" alt="зелень" class="rounded rounded-3 border border-1">
+    <div class="row position-absolute top-50 translate-middle-y w-100 ms-0">
+      <div class="col-lg-1 col-md-2 col-sm-2 col-2"></div>
+      <div class="col-xxl-6 col-lg-7 col-md-7 col-sm-9 col-8 d-flex flex-column gap-xl-4 gap-sm-3 gap-2 ms-5">
+        <h2 class="fw-bold fs-1 text-dark mb-0 d-md-block d-sm-none d-none">Человек, не выпивший чаю,</h2>
+        <p class="text-dark fs-3 mb-0 d-md-block d-sm-none d-none">находится в разладе со вселенной</p>
+      </div>
+      <div class="col-xxl-5 col-lg-3 col-md-3 col-sm-1 col-2 d"></div>
+    </div>
+  </div>
+
+  <div class="faq pt-4 mb-5">
+    <h2 class="text-center mb-5 fw-bold">Ответы на часто задаваемые вопросы</h2>
+    <div class="row row-cols-sm-3 row-cols-1">
+      <div class="col-md-2 col-sm-1"></div>
+      <div class="col-md-8 col-sm-10">
+        <ngb-accordion [closeOthers]="true">
+          <ngb-panel id="tab-01" title="Собираете ли вы подарочные боксы?">
+            <ng-template ngbPanelContent class="bg-primary">
+              Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и
+              стоимость! Но у вас не хватит денег...
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="tab-02" title="Сколько у вас разновидностей чая?">
+            <ng-template ngbPanelContent>
+              Чай один - наклейки разные!
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="tab-03" title="В какой срок осуществляется доставка?">
+            <ng-template ngbPanelContent>
+              В кратчайший: в нашем распоряжении курьеры на самых быстрых лошадях, собаках и велосипедах!
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="tab-04" title="У вас обновляется ассортимент?">
+            <ng-template ngbPanelContent>
+              У нас регулярно появляются новые миксы, потому что у нашего фасовщика трясутся руки!
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="tab-05" title="Какого объема у вас пачки чая?">
+            <ng-template ngbPanelContent>
+              В нашем распоряжении только килограммовая гиря - поэтому фасуем только по 1кг!
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+      <div class="col-md-2 col-sm-1"></div>
+    </div>
+  </div>
+
+  <div class="modal bg-dark bg-opacity-50 d-block" *ngIf="showModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body d-flex flex-column justify-content-center">
+          <button type="button" class="btn-close position-absolute end-0 top-0 m-2" (click)="closeModal()"></button>
+          <p class="w-100 text-center fs-4 pt-4">Посмотрите наши чайные коллекции</p>
+          <a class="btn btn-primary" (click)="goByLink('catalog')">Смотреть</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
