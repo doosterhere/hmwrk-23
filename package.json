@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-gp": "ng build --output-path docs --base-href /hmwrk-23/ --deploy-url /hmwrk-23/",
+    "build-gp": "ng build --output-path docs --base-href /hmwrk-23/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
