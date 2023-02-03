@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 import {SearchService} from "../../services/search.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {SearchService} from "../../services/search.service";
 })
 export class HeaderComponent {
   searchForm = this.fb.group({
-    search: ['']
+    search: ['', Validators.required]
   });
 
   constructor(private router: Router,

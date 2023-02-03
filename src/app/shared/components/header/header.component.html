@@ -17,9 +17,11 @@
             <a class="nav-link" [routerLink]="'catalog'">Каталог</a>
           </li>
         </ul>
-        <form class="d-flex" role="search" [formGroup]="searchForm">
+        <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="search()">
           <input type="text" class="form-control me-2" placeholder="Поиск чая" formControlName="search">
-          <button type="button" class="btn btn-outline-primary ps-4 pe-4 me-2" (click)="search()">Найти</button>
+          <button type="submit" class="btn btn-outline-primary ps-4 pe-4 me-2"
+                  [disabled]="searchForm.invalid || searchForm.disabled">Найти
+          </button>
           <button type="button" class="btn btn-outline-primary ps-4 pe-4" (click)="clear()">Очистить</button>
         </form>
       </div>
